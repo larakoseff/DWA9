@@ -18,6 +18,7 @@ for (const { author, id, image, title } of matches.slice(0, BOOKS_PER_PAGE)) {
 
 html.list.items.appendChild(starting)
 
+
 createDropdownOptions(html.search.genres, genres, 'All Genres');
 createDropdownOptions(html.search.authors, authors, 'All Authors');
 
@@ -36,11 +37,11 @@ html.settings.cancel.addEventListener('click', () => {
     html.settings.overlay.open = false
 })
 
-const searchButton = getHtml({ dataAttr: "headersearch" })
-const searchOverlay = getHtml({ dataAttr:"search" });
+const searchButton = getHtml({ dataAttr: "header-search" })
+const searchOverlay = getHtml({ dataAttr:"search-template" });
 
 if(!(searchButton instanceof HTMLElement)) {
-    throw new Error('data-headersearch')
+    throw new Error('data-header-search')
 }
 
 if (!(searchOverlay instanceof Search)){

@@ -191,28 +191,28 @@ template.innerHTML = /* html */ `
   }
 </style>  
 
-<dialog class="overlay" data-searchoverlay>
+<dialog class="overlay" data-search-overlay>
 <div class="content">
-  <form class="form" data-searchform id="search">
+  <form class="form" data-search-form id="search">
     <label class="field">
       <div class="label">Title</div>
-      <input class="input" data-searchtitle name="title" placeholder="Any"></input>
+      <input class="input" data-search-title name="title" placeholder="Any"></input>
     </label>
 
     <label class="field">
       <div class="label">Genre</div>
-      <select class="input input_select" data-searchgenres name="genre"></select>
+      <select class="input input_select" data-search-genres name="genre"></select>
     </label>
 
     <label class="field">
       <div class="label">Author</div>
-      <select class="input input_select" data-searchauthors name="author">
+      <select class="input input_select" data-search-authors name="author">
       </select>
     </label>
   </form>
 
   <div class="row">
-    <button class="button" data-searchcancel>Cancel</button>
+    <button class="button" data-search-cancel>Cancel</button>
     <button class="button button_primary" type="submit" form="search">Search</button>
   </div>
 </div>
@@ -226,31 +226,31 @@ export class Search extends HTMLElement {
         /**
          * @type {undefined | HTMLElement}
          */
-        searchform: undefined,
+        "search-form": undefined,
         /**
          * @type {undefined | HTMLElement}
          */
-        searchcancel: undefined,
+        "search-cancel": undefined,
     
         /**
          * @type {undefined | HTMLElement}
          */
-        searchoverlay: undefined,
+        "search-overlay": undefined,
 
         /**
          * @type {undefined | HTMLElement}
          */
-        searchauthors: undefined,
+        "search-authors": undefined,
 
          /**
          * @type {undefined | HTMLElement}
          */
-         searchtitle: undefined,
+         "search-title": undefined,
 
           /**
          * @type {undefined | HTMLElement}
          */
-        searchgenres: undefined,
+        "search-genres": undefined,
       };
 
         /**
@@ -266,12 +266,12 @@ export class Search extends HTMLElement {
 
   connectedCallback() {
     this.#elements = {
-      form: getHtml({ dataAttr: "searchform", target: this.#inner }),
-      cancel: getHtml({ dataAttr: "searchcancel", target: this.#inner }),
-      overlay: getHtml({ dataAttr: "searchoverlay", target: this.#inner }),
-      authors: getHtml({ dataAttr: "searchauthors", target: this.#inner }),
-      title: getHtml({ dataAttr: "searchtitle", target: this.#inner }),
-      genres: getHtml({ dataAttr: "searchgenres", target: this.#inner }),
+      form: getHtml({ dataAttr: "search-form", target: this.#inner }),
+      cancel: getHtml({ dataAttr: "search-cancel", target: this.#inner }),
+      overlay: getHtml({ dataAttr: "search-overlay", target: this.#inner }),
+      authors: getHtml({ dataAttr: "search-authors", target: this.#inner }),
+      title: getHtml({ dataAttr: "search-title", target: this.#inner }),
+      genres: getHtml({ dataAttr: "search-genres", target: this.#inner }),
     };
 
     this.open = this.getAttribute('open') !== null
@@ -321,7 +321,7 @@ export class Search extends HTMLElement {
     }
   }
   
-  customElements.define("search-overlay", Search);
+  customElements.define("search-template", Search);
   
   
   export default Search
